@@ -1,0 +1,778 @@
+{
+  "per_record": [
+    {
+      "key": "Ⅰ-1",
+      "response_char_count": 113,
+      "teikeiku_found": [],
+      "concrete_references": {
+        "page_reference": [
+          "【14ページ】"
+        ],
+        "article_reference": [],
+        "date_reference": [
+          "令和2年"
+        ],
+        "quantity_reference": []
+      },
+      "categories": [
+        "shusei_tsuika"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅰ-2",
+      "response_char_count": 558,
+      "teikeiku_found": [],
+      "concrete_references": {
+        "page_reference": [
+          "【63ページ】"
+        ],
+        "article_reference": [],
+        "date_reference": [
+          "2027年"
+        ],
+        "quantity_reference": []
+      },
+      "categories": [
+        "shusei_tsuika"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅰ-3",
+      "response_char_count": 558,
+      "teikeiku_found": [],
+      "concrete_references": {
+        "page_reference": [
+          "【63ページ】"
+        ],
+        "article_reference": [],
+        "date_reference": [
+          "2027年"
+        ],
+        "quantity_reference": []
+      },
+      "categories": [
+        "shusei_tsuika"
+      ],
+      "response_cell_merged_with_previous": true
+    },
+    {
+      "key": "Ⅱ-1",
+      "response_char_count": 200,
+      "teikeiku_found": [
+        "素案のとおり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "soan_no_toori"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-2",
+      "response_char_count": 121,
+      "teikeiku_found": [
+        "素案のとおり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "soan_no_toori"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-3",
+      "response_char_count": 118,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-4",
+      "response_char_count": 283,
+      "teikeiku_found": [],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [
+          "令和６年",
+          "令和５年"
+        ],
+        "quantity_reference": []
+      },
+      "categories": [
+        "sonota"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-5",
+      "response_char_count": 283,
+      "teikeiku_found": [],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [
+          "令和６年",
+          "令和５年"
+        ],
+        "quantity_reference": []
+      },
+      "categories": [
+        "sonota"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-6",
+      "response_char_count": 65,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-7",
+      "response_char_count": 72,
+      "teikeiku_found": [],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kizon_torikumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-8",
+      "response_char_count": 40,
+      "teikeiku_found": [
+        "引き続き検討を進めてまいります"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kento_keizoku"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-9",
+      "response_char_count": 283,
+      "teikeiku_found": [],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [
+          "令和６年",
+          "令和５年"
+        ],
+        "quantity_reference": []
+      },
+      "categories": [
+        "sonota"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-10",
+      "response_char_count": 65,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-11",
+      "response_char_count": 73,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-12",
+      "response_char_count": 71,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-13",
+      "response_char_count": 79,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-14",
+      "response_char_count": 71,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-15",
+      "response_char_count": 122,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "素案のまま"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi",
+        "soan_no_toori"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-16",
+      "response_char_count": 83,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-17",
+      "response_char_count": 69,
+      "teikeiku_found": [
+        "適切に対処をしてまいります"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "sonota"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-18",
+      "response_char_count": 154,
+      "teikeiku_found": [
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-19",
+      "response_char_count": 99,
+      "teikeiku_found": [],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [
+          "2021年",
+          "2027年"
+        ],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kizon_torikumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-20",
+      "response_char_count": 69,
+      "teikeiku_found": [
+        "適切に対処してまいります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-21",
+      "response_char_count": 75,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-22",
+      "response_char_count": 60,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-23",
+      "response_char_count": 68,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-24",
+      "response_char_count": 134,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-25",
+      "response_char_count": 105,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-26",
+      "response_char_count": 67,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-27",
+      "response_char_count": 67,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-28",
+      "response_char_count": 108,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-29",
+      "response_char_count": 79,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-30",
+      "response_char_count": 94,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-31",
+      "response_char_count": 62,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-32",
+      "response_char_count": 59,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "素案のとおり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi",
+        "soan_no_toori"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-33",
+      "response_char_count": 87,
+      "teikeiku_found": [
+        "適切に対処して参ります",
+        "記述しているところであり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-34",
+      "response_char_count": 112,
+      "teikeiku_found": [
+        "適切に対処して参ります"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kizon_torikumi"
+      ],
+      "response_cell_merged_with_previous": false
+    },
+    {
+      "key": "Ⅱ-35",
+      "response_char_count": 86,
+      "teikeiku_found": [
+        "適切に対処してまいります",
+        "素案のとおり"
+      ],
+      "concrete_references": {
+        "page_reference": [],
+        "article_reference": [],
+        "date_reference": [],
+        "quantity_reference": []
+      },
+      "categories": [
+        "kisai_zumi",
+        "soan_no_toori"
+      ],
+      "response_cell_merged_with_previous": false
+    }
+  ],
+  "corpus": {
+    "record_count": 38,
+    "teikeiku_hit_count": 30,
+    "duplicate_response_groups": [
+      {
+        "keys": [
+          "Ⅱ-4",
+          "Ⅱ-5",
+          "Ⅱ-9"
+        ],
+        "response": "全国の移動の足の確保に向け、日本版ライドシェアの導入（令和６年４月）や公共ライドシェアの制度改善（令和５年１２月）を行い、その後も、例えば、・日本版ライドシェアを雨天・イベント時などに台数を拡大できるようにする・公共ライドシェアを実施できるエリアを拡大するなどのユーザー目線での運用改善を重ねてきております。その結果、タクシーの配車マッチング率のデータをみると、全国的にタクシーのつかまりやすさが改善してきており、利用者利便の向上に繋がっていると考えております。引き続き、全国での交通空白の解消に向け、地域交通の担い手や移動の足の確保の取組を強力に進めてまいります。"
+      },
+      {
+        "keys": [
+          "Ⅱ-26",
+          "Ⅱ-27"
+        ],
+        "response": "第３章基本的方針Dに、データを二次利用しやすい環境の構築を進める旨を記述しているところであり、ご意見も踏まえて適切に対処して参ります。"
+      }
+    ],
+    "similar_response_pairs": [],
+    "category_counts": {
+      "shusei_tsuika": 3,
+      "kisai_zumi": 25,
+      "soan_no_toori": 5,
+      "kento_keizoku": 1,
+      "kizon_torikumi": 3,
+      "sonota": 4
+    },
+    "category_other_rate": 0.105,
+    "settings": {
+      "similarity_threshold": 0.9,
+      "teikeiku_phrases": [
+        "適切に対処して参ります",
+        "適切に対処してまいります",
+        "適切に対処をしてまいります",
+        "記述しているところであり",
+        "素案のとおり",
+        "素案のまま",
+        "引き続き検討を進めてまいります",
+        "ご意見として承ります",
+        "御意見として承ります",
+        "ご意見として承りました",
+        "御意見として承りました",
+        "今後の参考にさせていただきます",
+        "参考にさせていただきます"
+      ],
+      "response_categories": {
+        "shusei_tsuika": {
+          "label": "「記述を追加・修正した」旨を含む回答",
+          "keywords": [
+            "記述を追加しました",
+            "修正しました",
+            "追記しました"
+          ]
+        },
+        "kisai_zumi": {
+          "label": "「既に記述している」旨を含む回答",
+          "keywords": [
+            "記述しているところ",
+            "記載しているところ",
+            "おおむね記述"
+          ]
+        },
+        "soan_no_toori": {
+          "label": "「素案のとおりとする」旨を含む回答",
+          "keywords": [
+            "素案のとおり",
+            "素案のまま"
+          ]
+        },
+        "kento_keizoku": {
+          "label": "「検討を継続する」旨を含む回答",
+          "keywords": [
+            "引き続き検討",
+            "検討を進めてまいります"
+          ]
+        },
+        "kizon_torikumi": {
+          "label": "「既存の取組を説明する」回答",
+          "keywords": [
+            "取り組んでおります",
+            "行っており",
+            "策定しているところ"
+          ]
+        }
+      }
+    }
+  },
+  "metadata": {
+    "source_id": "S-001",
+    "note": "構造的指標のみを算出。回答内容の質的評価は行わない（CLAUDE.md §3）。"
+  }
+}

@@ -60,24 +60,39 @@
 
 ## データソース
 
-- **最初のデータ:** 交通政策基本計画パブコメ結果(国土交通省・内閣府の公開資料)
-- **取得方法・形式(CSV / PDF / テキスト等):** `要確認(未検証)` — 公開ページの形式をこれから確認します。
-- 取得元・取得日・元データのURLは `docs/SOURCES.md`(**今後作成予定**)に記録します。取得した原文の改変・恣意的削除は行いません。
+- **最初のデータ:** 第3次交通政策基本計画（素案）パブコメ結果(国土交通省 交通政策審議会 計画部会 配布資料)
+- **取得方法・形式:** PDF(意見・考え方の対応表)を手動取得。掲載は「主な御意見」の抜粋(掲載38件 / 提出総数33者62件)。
+- 取得元・取得日・元データのURL・ハッシュは [`docs/SOURCES.md`](./docs/SOURCES.md) に記録しています。取得した原文の改変・恣意的削除は行いません。
 
 ---
 
 ## セットアップ手順
 
-`未決定(TBD)`
+必要環境: Python 3.12 以降(3.14.5 で動作確認)
 
-技術スタック・必要な環境・依存関係・ローカル起動手順は、**技術選定後にここへ追記**します。
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+
+# 1. PDF から意見・回答ペアを抽出
+.\.venv\Scripts\python.exe analysis\extract_opinions.py data\raw\001970953_kotsu-seisaku-kihon-keikaku_pubcomme-iken.pdf -o data\processed\opinions.json
+
+# 2. 抽出結果と原文の突合検証(レポートは docs/VERIFICATION_M1.md)
+.\.venv\Scripts\python.exe analysis\verify_extraction.py data\raw\001970953_kotsu-seisaku-kihon-keikaku_pubcomme-iken.pdf data\processed\opinions.json -o docs\VERIFICATION_M1.md
+
+# 3. 構造的指標の算出
+.\.venv\Scripts\python.exe analysis\metrics.py data\processed\opinions.json -o data\processed\metrics.json
+
+# テスト実行
+.\.venv\Scripts\python.exe -m pytest
+```
 
 ---
 
 ## ライセンス・ガバナンス
 
-- **ライセンス:** MIT(`LICENSE` ファイルは別途追加予定)
-- **中立性の開示方針:** データ取得の正確性、運営体制・資金源の中立性については `docs/GOVERNANCE.md`(**今後作成予定**)で開示します。オープンソース化が保証するのは「アルゴリズムの中立性」のみである点に留意してください。
+- **ライセンス:** MIT([`LICENSE`](./LICENSE))
+- **中立性の開示方針:** データ取得の正確性、運営体制・資金源の中立性については [`docs/GOVERNANCE.md`](./docs/GOVERNANCE.md) で開示します。オープンソース化が保証するのは「アルゴリズムの中立性」のみである点に留意してください。
 - **コントリビュート:** 分類・検出ロジックへの修正提案を歓迎します。提案は中立性ガードレール([`CLAUDE.md`](./CLAUDE.md) §3)に沿うものとします。プルリクエストの受け入れ細則は `要決定(TBD)`。
 
 ---
