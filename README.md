@@ -83,9 +83,23 @@ python -m venv .venv
 # 3. 構造的指標の算出
 .\.venv\Scripts\python.exe analysis\metrics.py data\processed\opinions.json -o data\processed\metrics.json
 
+# 4. e-Gov RSSから募集中案件の候補検知用スナップショットを取得
+.\.venv\Scripts\python.exe analysis\fetch_candidates.py -o data\processed\egov_rss_snapshot.json
+
+# 5. 公開前に案件台帳の必須項目を検証
+.\.venv\Scripts\python.exe analysis\validate_case_catalog.py data\processed\case_catalog.json
+
+# 6. RSSスナップショットを履歴へ保存し、前回との差分を作成
+.\.venv\Scripts\python.exe analysis\update_rss_history.py data\processed\egov_rss_snapshot.json
+
+# 7. Phase 1関連の可能性がある案件を文字列一致で目印付け（自動選定はしない）
+.\.venv\Scripts\python.exe analysis\flag_phase1_candidates.py data\processed\egov_rss_snapshot.json -o data\processed\phase1_signals.json
+
 # テスト実行
 .\.venv\Scripts\python.exe -m pytest
 ```
+
+RSSは候補検知の入口です。掲載案件の選定には、案件詳細・意見募集要領・案文の確認が別途必要です。
 
 ---
 

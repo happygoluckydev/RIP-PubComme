@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "schema_version": 1,
+    "updated_at": "2026-07-20T20:40:53+09:00",
+    "scope": "Phase 1: ライドシェア・道路運送・物流関連規制",
+    "note": "掲載中の案件は、案件詳細・意見募集要領・案文を確認済みのものに限る。"
+  },
+  "cases": [
+    {
+      "case_id": "C-001",
+      "status": "対象外",
+      "official_title": "くま川鉄道株式会社の鉄道事業の旅客運賃上限変更認可申請に関する意見募集について",
+      "official_detail_url": "https://public-comment.e-gov.go.jp/pcm/detail?CLASSNAME=PCMMSTDETAIL&Mode=0&id=155260815",
+      "verified_at": "2026-07-20T21:02:39+09:00",
+      "status_reason": "公式資料で鉄道事業の旅客運賃上限変更認可申請であることを確認。現在のPhase 1（ライドシェア・道路運送・物流関連規制）の対象範囲には含めない。",
+      "rss_detected_at": "2026-07-20T21:02:39+09:00",
+      "official_deadline": "2026-07-30 23:59"
+    }
+  ]
+}

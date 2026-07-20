@@ -39,6 +39,13 @@
         .record { border-top: 1px solid var(--line); padding: 18px 0; }
         .record:first-child { border-top: 0; }
         .record h3 { margin: 0; font-size: 1.05rem; }
+        .case { border-top: 1px solid var(--line); padding: 18px 0; }
+        .case:first-child { border-top: 0; }
+        .case h3 { margin: 0; font-size: 1.05rem; }
+        .case dl { display: grid; gap: 10px; margin: 12px 0 0; }
+        .case dt { color: var(--muted); font-size: .9rem; font-weight: 700; }
+        .case dd { margin: -6px 0 0; }
+        .submit-link { display: inline-block; background: var(--accent); border-radius: 6px; color: #fff; font-weight: 700; padding: 9px 13px; text-decoration: none; }
         .label { color: var(--muted); font-size: .9rem; font-weight: 700; margin: 14px 0 2px; }
         .text { white-space: pre-wrap; margin: 0; }
         .facts { display: flex; flex-wrap: wrap; gap: 7px; list-style: none; padding: 0; }
@@ -58,6 +65,12 @@
 
         <section class="panel notice" aria-label="データ範囲の注記">
             <strong>データ範囲:</strong> この資料は国土交通省が選んだ「主な御意見」の抜粋・概要です。提出された全意見の一覧ではありません。回答の妥当性、具体性、誠実さは評価・採点していません。
+        </section>
+
+        <section class="panel" aria-labelledby="active-cases-heading">
+            <h2 id="active-cases-heading">募集中のパブリックコメント</h2>
+            <p class="lead">Phase 1（ライドシェア・道路運送・物流関連規制）で、公式資料を確認済みの案件だけを掲載します。</p>
+            <div id="active-cases" aria-live="polite"></div>
         </section>
 
         <section class="panel" aria-labelledby="summary-heading">
@@ -124,11 +137,46 @@
                 <details><summary>類似回答の判定設定</summary><p>文字列類似度が ${corpus.settings.similarity_threshold} 以上の回答ペアを列挙します。今回の結果は ${corpus.similar_response_pairs.length} ペアです。</p></details>`;
         }
 
+        function renderActiveCases(catalog) {
+            const container = document.querySelector("#active-cases");
+            const activeCases = catalog.cases.filter((item) => item.status === "掲載中");
+            if (!activeCases.length) {
+                container.innerHTML = `<p>現在、確認済みで掲載中の案件はありません。候補は<a href="https://public-comment.e-gov.go.jp/rss/pcm_list.xml">e-Govの公式RSS</a>から確認し、公式資料を確認後に掲載します。</p>`;
+                return;
+            }
+            container.innerHTML = activeCases.map((item) => {
+                const documents = item.documents.map((document) =>
+                    `<li><a href="${escapeHtml(document.url)}">${escapeHtml(document.label)}</a></li>`
+                ).join("");
+                const submissionLabel = item.submission.status === "案内中"
+                    ? "公式提出先を開く"
+                    : "公式ページで受付状況を確認する";
+                return `<article class="case">
+                    <h3>${escapeHtml(item.official_title)}</h3>
+                    <p class="label">締切</p><p>${escapeHtml(item.deadline)}</p>
+                    <p class="label">3行サマリー</p><p class="text">${escapeHtml(item.summary)}</p>
+                    <details><summary>やさしい解説</summary>
+                        <dl>
+                            <dt>何が変わる案か</dt><dd>${escapeHtml(item.explanation.what_changes)}</dd>
+                            <dt>暮らしとの関係</dt><dd>${escapeHtml(item.explanation.life_connection)}</dd>
+                            <dt>意見を出すには</dt><dd>${escapeHtml(item.explanation.how_to_submit)}</dd>
+                        </dl>
+                    </details>
+                    <details><summary>原文・公式資料</summary>
+                        <ul><li><a href="${escapeHtml(item.official_detail_url)}">e-Govの案件詳細</a></li>${documents}</ul>
+                    </details>
+                    <p><a class="submit-link" href="${escapeHtml(item.submission.official_submission_url)}" target="_blank" rel="noopener noreferrer">${submissionLabel}</a></p>
+                    <p class="notice">${escapeHtml(item.submission.notice)}</p>
+                </article>`;
+            }).join("");
+        }
+
         async function main() {
             try {
-                const [opinions, metrics] = await Promise.all([
+                const [opinions, metrics, catalog] = await Promise.all([
                     fetch("data/processed/opinions.json").then((response) => response.json()),
                     fetch("data/processed/metrics.json").then((response) => response.json()),
+                    fetch("data/processed/case_catalog.json").then((response) => response.json()),
                 ]);
                 const byKey = new Map(metrics.per_record.map((metric) => [metric.key, metric]));
                 document.querySelector("#stats").innerHTML = [
@@ -140,6 +188,7 @@
                 document.querySelector("#records").innerHTML = opinions.records
                     .map((record) => renderRecord(record, byKey.get(record.key))).join("");
                 document.querySelector("#method").innerHTML = renderMethod(metrics.corpus);
+                renderActiveCases(catalog);
                 const records = [...document.querySelectorAll(".record")];
                 const count = document.querySelector("#result-count");
                 const update = () => {
