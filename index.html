@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RIP-PubComme | パブリックコメント可視化</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #172033;
+            --muted: #5b6475;
+            --line: #d9dfeb;
+            --surface: #ffffff;
+            --canvas: #f5f7fb;
+            --accent: #165d9c;
+            --accent-pale: #e7f2fc;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--canvas);
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.65;
+        }
+        a { color: var(--accent); }
+        main { max-width: 1080px; margin: 0 auto; padding: 28px 20px 64px; }
+        header { border-bottom: 4px solid var(--accent); padding-bottom: 20px; }
+        h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0; letter-spacing: .02em; }
+        h2 { margin-top: 0; font-size: 1.25rem; }
+        .lead, .notice { color: var(--muted); max-width: 54rem; }
+        .notice { background: #fff6df; border-left: 4px solid #a66a00; padding: 12px 16px; }
+        .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; margin-top: 24px; padding: 20px; }
+        .stats { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+        .stat { background: var(--accent-pale); border-radius: 8px; padding: 12px; }
+        .stat b { display: block; font-size: 1.5rem; }
+        .controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+        input { border: 1px solid #9ca8bc; border-radius: 6px; font: inherit; min-width: min(100%, 22rem); padding: 8px 10px; }
+        .record { border-top: 1px solid var(--line); padding: 18px 0; }
+        .record:first-child { border-top: 0; }
+        .record h3 { margin: 0; font-size: 1.05rem; }
+        .label { color: var(--muted); font-size: .9rem; font-weight: 700; margin: 14px 0 2px; }
+        .text { white-space: pre-wrap; margin: 0; }
+        .facts { display: flex; flex-wrap: wrap; gap: 7px; list-style: none; padding: 0; }
+        .facts li { background: #edf0f5; border-radius: 99px; font-size: .88rem; padding: 3px 9px; }
+        details { margin-top: 10px; }
+        summary { cursor: pointer; color: var(--accent); }
+        .error { color: #9a1b1b; font-weight: 700; }
+        @media (max-width: 560px) { main { padding: 20px 14px 48px; } .panel { padding: 16px; } }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>パブリックコメントの回答を、構造的事実として見る</h1>
+            <p class="lead">国土交通省の公開資料に掲載された意見・回答を、そのまま閲覧し、文字数・文言一致・具体的参照・キーワード分類を確認できます。</p>
+        </header>
+
+        <section class="panel notice" aria-label="データ範囲の注記">
+            <strong>データ範囲:</strong> この資料は国土交通省が選んだ「主な御意見」の抜粋・概要です。提出された全意見の一覧ではありません。回答の妥当性、具体性、誠実さは評価・採点していません。
+        </section>
+
+        <section class="panel" aria-labelledby="summary-heading">
+            <h2 id="summary-heading">S-001: 交通政策基本計画（素案）</h2>
+            <div class="stats" id="stats" aria-live="polite"></div>
+            <p><a href="data/raw/001970953_kotsu-seisaku-kihon-keikaku_pubcomme-iken.pdf">原文PDF</a> · <a href="docs/SOURCES.md">出典・取得記録</a> · <a href="docs/VERIFICATION_M1.md">抽出検証レポート</a></p>
+        </section>
+
+        <section class="panel" aria-labelledby="records-heading">
+            <h2 id="records-heading">意見・回答（全件）</h2>
+            <div class="controls">
+                <label for="search">本文・該当箇所・番号を検索</label>
+                <input id="search" type="search" placeholder="例: ライドシェア、Ⅱ-4">
+                <span id="result-count" aria-live="polite"></span>
+            </div>
+            <div id="records"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="method-heading">
+            <h2 id="method-heading">表示している機械的指標と設定</h2>
+            <p>各指標は文字列・正規表現・公開済みキーワードとの一致結果です。結果を良し悪しや説明の質として解釈するものではありません。</p>
+            <div id="method"></div>
+        </section>
+    </main>
+
+    <script>
+        const escapeHtml = (value) => String(value)
+            .replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+
+        const fact = (text) => `<li>${escapeHtml(text)}</li>`;
+
+        function renderRecord(record, metric) {
+            const references = Object.entries(metric.concrete_references)
+                .flatMap(([kind, values]) => values.map((value) => `${kind}: ${value}`));
+            const facts = [
+                `${metric.response_char_count}文字（空白除去）`,
+                ...metric.teikeiku_found.map((value) => `定型句: ${value}`),
+                ...references,
+                ...metric.categories.map((value) => `分類: ${value}`),
+                ...(metric.response_cell_merged_with_previous ? ["前の意見と同じ回答セル"] : []),
+            ];
+            return `<article class="record" data-search="${escapeHtml([
+                record.key, record.section, record.opinion_summary, record.response, ...facts,
+            ].join(" ").toLowerCase())}">
+                <h3>${escapeHtml(record.key)} <small>(${escapeHtml(record.group_label)})</small></h3>
+                <p class="label">該当箇所</p><p class="text">${escapeHtml(record.section)}</p>
+                <p class="label">意見（資料の概要）</p><p class="text">${escapeHtml(record.opinion_summary)}</p>
+                <p class="label">考え方（資料の記載）</p><p class="text">${escapeHtml(record.response)}</p>
+                <ul class="facts">${facts.map(fact).join("")}</ul>
+            </article>`;
+        }
+
+        function renderMethod(corpus) {
+            const categoryRows = Object.entries(corpus.settings.response_categories)
+                .map(([key, value]) => `<li><code>${escapeHtml(key)}</code>: ${escapeHtml(value.label)}（キーワード: ${escapeHtml(value.keywords.join("、"))}）</li>`)
+                .join("");
+            const duplicateRows = corpus.duplicate_response_groups.length
+                ? `<ul>${corpus.duplicate_response_groups.map((group) => `<li>${escapeHtml(group.keys.join("、"))}</li>`).join("")}</ul>`
+                : "<p>完全一致の回答グループはありません。</p>";
+            return `<details><summary>分類キーワードと「その他」率</summary><ul>${categoryRows}<li><code>sonota</code>: 上記キーワードのいずれにも一致しない回答</li></ul><p>「その他」率: ${corpus.category_other_rate * 100}%</p></details>
+                <details><summary>定型句リスト</summary><p>${corpus.settings.teikeiku_phrases.map(escapeHtml).join("、")}</p></details>
+                <details><summary>完全一致の回答グループ（結合セル由来の共有回答は除外）</summary>${duplicateRows}</details>
+                <details><summary>類似回答の判定設定</summary><p>文字列類似度が ${corpus.settings.similarity_threshold} 以上の回答ペアを列挙します。今回の結果は ${corpus.similar_response_pairs.length} ペアです。</p></details>`;
+        }
+
+        async function main() {
+            try {
+                const [opinions, metrics] = await Promise.all([
+                    fetch("data/processed/opinions.json").then((response) => response.json()),
+                    fetch("data/processed/metrics.json").then((response) => response.json()),
+                ]);
+                const byKey = new Map(metrics.per_record.map((metric) => [metric.key, metric]));
+                document.querySelector("#stats").innerHTML = [
+                    ["掲載された意見・回答", `${metrics.corpus.record_count}件`],
+                    ["定型句の一致がある回答", `${metrics.corpus.teikeiku_hit_count}件`],
+                    ["完全一致の回答グループ", `${metrics.corpus.duplicate_response_groups.length}組`],
+                    ["提出総数（資料記載）", `${opinions.metadata.total_opinions}件 / ${opinions.metadata.total_submitters}者`],
+                ].map(([label, value]) => `<div class="stat"><span>${label}</span><b>${value}</b></div>`).join("");
+                document.querySelector("#records").innerHTML = opinions.records
+                    .map((record) => renderRecord(record, byKey.get(record.key))).join("");
+                document.querySelector("#method").innerHTML = renderMethod(metrics.corpus);
+                const records = [...document.querySelectorAll(".record")];
+                const count = document.querySelector("#result-count");
+                const update = () => {
+                    const query = document.querySelector("#search").value.trim().toLowerCase();
+                    let visible = 0;
+                    records.forEach((record) => {
+                        const show = !query || record.dataset.search.includes(query);
+                        record.hidden = !show;
+                        visible += Number(show);
+                    });
+                    count.textContent = `${visible}件を表示`;
+                };
+                document.querySelector("#search").addEventListener("input", update);
+                update();
+            } catch (error) {
+                document.querySelector("main").insertAdjacentHTML("beforeend", `<p class="error">データを読み込めませんでした: ${escapeHtml(error.message)}</p>`);
+            }
+        }
+        main();
+    </script>
+</body>
+</html>
