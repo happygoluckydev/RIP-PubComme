@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "source_url": "https://public-comment.e-gov.go.jp/rss/pcm_list.xml",
+    "source_fetched_at": "2026-07-20T21:02:39+09:00",
+    "keywords": [
+      "ライドシェア",
+      "道路運送",
+      "旅客自動車運送",
+      "貨物自動車運送",
+      "自家用有償旅客運送",
+      "物流",
+      "トラック",
+      "タクシー"
+    ],
+    "note": "文字列一致による候補目印。不一致は対象外、一覧は掲載候補を意味しない。"
+  },
+  "signals": []
+}
